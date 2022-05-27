@@ -1,10 +1,11 @@
 import React from "react";
-import "./styles..css"
+import "../../main.scss"
 
-const GalleryImage:React.FC<{rawImage:any}> = ({rawImage}) => {
+
+const GalleryImage:React.FC<{rawImage:any, eagerLoad?:boolean}> = ({rawImage,eagerLoad}) => {
     return (
         <div className="galleryImageWrapper">
-            <img className="galleryImage" src={rawImage} alt={rawImage}/>
+            <img className="galleryImage" src={rawImage} alt={rawImage} loading={eagerLoad?"eager":"lazy"}/>
         </div>
     )
 }

@@ -7,7 +7,7 @@ import e from "../../images/spain/e.jpg"
 import f from "../../images/spain/f.jpg"
 import g from "../../images/spain/g.jpg"
 import GalleryImage from "../GalleryImage";
-import "./styles.css"
+import "../../main.scss"
 
 
 
@@ -15,8 +15,8 @@ const Gallery: React.FC = () => {
     return (
         <div className={"gallery"}>
             <div className="column">
-                <GalleryImage rawImage={a}/>
-                <GalleryImage rawImage={g}/>
+                <GalleryImage rawImage={a} eagerLoad/>
+                <GalleryImage rawImage={g} eagerLoad/>
                 <GalleryImage rawImage={c}/>
                 <GalleryImage rawImage={f}/>
             </div>

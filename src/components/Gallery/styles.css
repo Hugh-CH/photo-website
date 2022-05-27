@@ -1,7 +1,9 @@
 .gallery {
-    display: flex;
+  display: flex;
 }
 
 .column {
-    flex: 50%;
+  flex: 50%;
 }
+
+/*# sourceMappingURL=styles.scss.map */

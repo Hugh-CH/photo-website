@@ -1,0 +1,19 @@
+.navBarWrapper{
+    display: flex;
+    flex-wrap: wrap;
+    width:100%;
+}
+
+.majorNavButton{
+    width: 100%;
+    font-size: medium;
+    padding: 2*$spacing 0;
+    &--selected {
+        @extend .majorNavButton;
+        background: $primaryLight;
+    }
+}
+
+.majorNavButton:hover{
+    background: $primaryLight;
+}

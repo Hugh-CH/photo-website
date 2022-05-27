@@ -1,6 +1,6 @@
 import React from "react";
 import Sidebar from "../Sidebar";
-import "./styles.css"
+import "../../main.scss"
 type layoutProps = {
     children?: React.ReactNode;
     currentPage:string;

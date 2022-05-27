@@ -1,11 +1,17 @@
-.navBarWrapper{
-    display: flex;
-    flex-wrap: wrap;
-    width:100%;
+.navBarWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
-.majorNavButton{
-    width: 100%;
-    font-size: medium;
+.majorNavButton {
+  width: 100%;
+  font-size: medium;
 
+  &--serious {
+   @extend .error;
+   border-width: 3px;
+ }
 }
+
+/*# sourceMappingURL=styles.scss.map */

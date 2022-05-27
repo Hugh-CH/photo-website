@@ -1,0 +1,17 @@
+div {
+  background: $background;
+  width: 100%;
+}
+
+button{
+  border: none;
+  background: $background;
+}
+
+hr {
+  width: 100%;
+  border:none;
+  border-top: 1px solid $primary;
+  margin-top: 2*$spacing;
+  margin-bottom: 2*$spacing;
+}
