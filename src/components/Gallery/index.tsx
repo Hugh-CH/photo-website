@@ -1,32 +1,41 @@
 import React from "react";
-import a from "../../images/spain/a.jpg"
-import b from "../../images/spain/b.jpg"
-import c from "../../images/spain/c.jpg"
-import d from "../../images/spain/d.jpg"
-import e from "../../images/spain/e.jpg"
-import f from "../../images/spain/f.jpg"
-import g from "../../images/spain/g.jpg"
+import {Cloudinary} from "@cloudinary/url-gen";
 import GalleryImage from "../GalleryImage";
 import "../../main.scss"
 
 
-
 const Gallery: React.FC = () => {
-    return (
-        <div className={"gallery"}>
-            <div className="column">
-                <GalleryImage rawImage={a} eagerLoad/>
-                <GalleryImage rawImage={g} eagerLoad/>
-                <GalleryImage rawImage={c}/>
-                <GalleryImage rawImage={f}/>
-            </div>
-            <div className="column">
-                <GalleryImage rawImage={e}/>
-                <GalleryImage rawImage={b}/>
-                <GalleryImage rawImage={d}/>
-            </div>
-        </div>
-            )
+  const cld = new Cloudinary({
+    cloud: {
+      cloudName: 'hughud'
+    }
+  });
+
+  const galleryName = 'spain'
+
+  let firstColumn = [];
+  let secondColumn = [];
+
+  for (let i = 1; i < 10; i++) {
+    let imageName = galleryName+'/'+galleryName+'_'+i;
+    let image = cld.image(imageName);
+    i & 1 ? (
+      firstColumn.push(<GalleryImage cldImage={image} />)
+      ):(
+      secondColumn.push(<GalleryImage cldImage={image} />)
+      );
+  }
+
+  return (
+    <div className={"gallery"}>
+      <div className="column">
+        {firstColumn}
+      </div>
+      <div className="column">
+        {secondColumn}
+      </div>
+    </div>
+  )
 }
 
 export default Gallery;

@@ -1,11 +1,13 @@
 import React from "react";
 import "../../main.scss"
+import {CloudinaryImage} from "@cloudinary/url-gen";
+import {AdvancedImage} from "@cloudinary/react";
 
 
-const GalleryImage:React.FC<{rawImage:any, eagerLoad?:boolean}> = ({rawImage,eagerLoad}) => {
+const GalleryImage:React.FC<{cldImage: CloudinaryImage}> = ({cldImage}) => {
     return (
         <div className="galleryImageWrapper">
-            <img className="galleryImage" src={rawImage} alt={rawImage} loading={eagerLoad?"eager":"lazy"}/>
+          <AdvancedImage className={"galleryImage"} cldImg={cldImage}/>
         </div>
     )
 }
