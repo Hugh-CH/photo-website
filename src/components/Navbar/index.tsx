@@ -1,17 +1,25 @@
 import React from "react";
 import "../../main.scss"
+import {page, Pages} from "../../helpers/pages";
 
 type navbarProps = {
-  currentPage:string;
-  setCurrentPage: React.Dispatch<React.SetStateAction<string>>;
+  currentPage:page;
+  setCurrentPage:  React.Dispatch<React.SetStateAction<page>>;
 }
 
 const Navbar: React.FC<navbarProps> =({currentPage, setCurrentPage}) => {
+
+
+  let buttons = [];
+  let k: keyof typeof Pages;
+  for (k in Pages){
+    const page = Pages[k]
+    buttons.push(<button className={currentPage.id===page.id?"majorNavButton--selected":"majorNavButton"} onClick={()=>{setCurrentPage(page)}}>{page.title}</button>)
+  }
+
   return (
     <div className="navBarWrapper">
-      <button className={currentPage==='home'?"majorNavButton--selected":"majorNavButton"} onClick={()=>{setCurrentPage('home')}}>Home</button>
-      <button className={currentPage==='spain'?"majorNavButton--selected":"majorNavButton"} onClick={()=>{setCurrentPage('spain')}}>Spain</button>
-      <button className={currentPage==='about'?"majorNavButton--selected":"majorNavButton"} onClick={()=>{setCurrentPage('about')}}>About</button>
+      {buttons}
     </div>
   )
 };

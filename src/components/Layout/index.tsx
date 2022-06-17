@@ -1,10 +1,12 @@
 import React from "react";
 import Sidebar from "../Sidebar";
 import "../../main.scss"
+import {page} from "../../helpers/pages";
+
 type layoutProps = {
     children?: React.ReactNode;
-    currentPage:string;
-    setCurrentPage: React.Dispatch<React.SetStateAction<string>>;
+    currentPage:page;
+    setCurrentPage:  React.Dispatch<React.SetStateAction<page>>;
 }
 
 const Layout: React.FC<layoutProps> = ({children,currentPage,setCurrentPage}) => {

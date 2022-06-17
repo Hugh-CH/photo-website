@@ -2,10 +2,11 @@ import React from "react";
 import logo from "../../images/logo.svg"
 import "../../main.scss"
 import Navbar from "../Navbar";
+import {page} from "../../helpers/pages";
 
 type sidebarProps = {
-  currentPage:string;
-  setCurrentPage: React.Dispatch<React.SetStateAction<string>>;
+  currentPage:page;
+  setCurrentPage:  React.Dispatch<React.SetStateAction<page>>;
 }
 
 

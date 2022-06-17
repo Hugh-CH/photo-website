@@ -3,26 +3,29 @@ import {Cloudinary} from "@cloudinary/url-gen";
 import GalleryImage from "../GalleryImage";
 import "../../main.scss"
 
+type galleryProps = {
+  galleryName: string,
+  numberofImages: number,
+}
 
-const Gallery: React.FC = () => {
+const Gallery: React.FC<galleryProps> = ({galleryName, numberofImages}) => {
   const cld = new Cloudinary({
     cloud: {
       cloudName: 'hughud'
     }
   });
 
-  const galleryName = 'spain'
-
   let firstColumn = [];
   let secondColumn = [];
 
-  for (let i = 1; i < 10; i++) {
-    let imageName = galleryName+'/'+galleryName+'_'+i;
+  for (let i = 1; i <=numberofImages; i++) {
+    let imageName = galleryName+'/'+i;
     let image = cld.image(imageName);
+    image.quality('auto')
     i & 1 ? (
-      firstColumn.push(<GalleryImage cldImage={image} />)
+      firstColumn.push(<GalleryImage key={i} cldImage={image} lazyLoad={i>4} />)
       ):(
-      secondColumn.push(<GalleryImage cldImage={image} />)
+      secondColumn.push(<GalleryImage key={i} cldImage={image} lazyLoad={i>4} />)
       );
   }
 
