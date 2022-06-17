@@ -18,7 +18,7 @@ const Sidebar: React.FC<sidebarProps> = ({currentPage,setCurrentPage}) => {
         <div className="logoContainer">
           <img className="logo" src={logo} alt="Logo Link"/>
         </div>
-        <hr/>
+        <hr />
         <div className="title">
           Hugh Hudson
         </div>

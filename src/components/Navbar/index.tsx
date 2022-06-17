@@ -1,6 +1,7 @@
-import React from "react";
+import React, {useState} from "react";
 import "../../main.scss"
-import {page, Pages} from "../../helpers/pages";
+import {Galleries, page, Pages} from "../../helpers/pages";
+import useCollapse from "react-collapsed";
 
 type navbarProps = {
   currentPage:page;
@@ -9,17 +10,44 @@ type navbarProps = {
 
 const Navbar: React.FC<navbarProps> =({currentPage, setCurrentPage}) => {
 
+  const [isExpanded, setExpanded] = useState(false)
+  const { getCollapseProps, getToggleProps } = useCollapse({isExpanded, expandStyles: {opacity: 0.8}, collapseStyles: {opacity: 0.8}});
 
-  let buttons = [];
-  let k: keyof typeof Pages;
-  for (k in Pages){
-    const page = Pages[k]
-    buttons.push(<button className={currentPage.id===page.id?"majorNavButton--selected":"majorNavButton"} onClick={()=>{setCurrentPage(page)}}>{page.title}</button>)
+  let galleryButtons = [];
+  let j: keyof typeof Galleries;
+  for (j in Galleries){
+    const gallery = Galleries[j]
+    galleryButtons.push(
+      <button className={currentPage.id===gallery.id?"minorNavButton--selected":"minorNavButton"} onClick={()=>{setCurrentPage(gallery)}}>
+        {gallery.title}
+      </button>)
   }
 
   return (
     <div className="navBarWrapper">
-      {buttons}
+      <button className={currentPage.id===Pages.home.id?"majorNavButton--selected":"majorNavButton"} onClick={()=>{setCurrentPage(Pages.home)}}>
+        {Pages.home.title}
+      </button>
+
+      <button
+        {...getToggleProps({
+        onClick: () => setExpanded((prevExpanded) => !prevExpanded),
+        })}
+        className={"majorNavButton"}>
+        {'Galleries'}
+      </button>
+
+      <div {...getCollapseProps()} className="expandableContainer">
+        <hr className="narrowDivider"/>
+        {galleryButtons}
+        <hr className="narrowDivider"/>
+      </div>
+
+      <button className={currentPage.id===Pages.about.id?"majorNavButton--selected":"majorNavButton"} onClick={()=>{setCurrentPage(Pages.about)}}>
+        {Pages.about.title}
+      </button>
+
+      {/*{showGalleryButtons && galleryButtons}*/}
     </div>
   )
 };

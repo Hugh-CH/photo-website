@@ -5,8 +5,9 @@
 }
 
 .majorNavButton{
+    vertical-align: top;
     width: 100%;
-    font-size: medium;
+    font-size: large;
     padding: 2*$spacing 0;
     &--selected {
         @extend .majorNavButton;
@@ -15,5 +16,32 @@
 }
 
 .majorNavButton:hover{
-    background: $primaryLight;
+    background: $primary;
+}
+
+.minorNavButton{
+    vertical-align: top;
+    width: 100%;
+    font-size: medium;
+    padding: 2*$spacing 0;
+    &--selected {
+        @extend .minorNavButton;
+        background: $primaryLight;
+    }
+}
+
+.minorNavButton:hover{
+    background: $primary;
+}
+
+.expandableContainer{
+    font-size:0;
+    display: block;
+    width: 100%;
+}
+
+.narrowDivider {
+    margin-top: 0;
+    margin-bottom: 0;
+    width:80%;
 }

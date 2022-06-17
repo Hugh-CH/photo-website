@@ -5,7 +5,7 @@
     top:0;
     display: flex;
     flex-wrap: wrap;
-    padding: 16px;
+    padding: 2*$spacing $spacing 2*$spacing 2*$spacing;
 }
 
 .logo {
@@ -21,4 +21,7 @@
 .title {
     text-align: center;
     font-size: x-large;
+    width: 100%;
+    font-variant: small-caps;
+    font-weight: 600;
 }

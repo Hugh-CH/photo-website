@@ -1,11 +1,12 @@
 div {
   background: $background;
-  width: 100%;
 }
 
 button{
   border: none;
   background: $background;
+  font-family: $font-family;
+  font-variant: small-caps;
 }
 
 hr {

@@ -2,6 +2,7 @@ import React from "react";
 import {Cloudinary} from "@cloudinary/url-gen";
 import GalleryImage from "../GalleryImage";
 import "../../main.scss"
+import {scale} from "@cloudinary/url-gen/actions/resize";
 
 type galleryProps = {
   galleryName: string,
@@ -22,6 +23,7 @@ const Gallery: React.FC<galleryProps> = ({galleryName, numberofImages}) => {
     let imageName = galleryName+'/'+i;
     let image = cld.image(imageName);
     image.quality('auto')
+    image.resize(scale().width(1000))
     i & 1 ? (
       firstColumn.push(<GalleryImage key={i} cldImage={image} lazyLoad={i>4} />)
       ):(
