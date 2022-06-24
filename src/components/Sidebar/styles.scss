@@ -1,27 +1,47 @@
 .sidebarContainer {
-    font-size: 50px;
-    width: 15vw;
-    position: sticky;
-    top:0;
+    padding: 2*$spacing 2*$spacing 0 2*$spacing;
     display: flex;
-    flex-wrap: wrap;
-    padding: 2*$spacing $spacing 2*$spacing 2*$spacing;
+    justify-content: space-between;
+    @media #{$desktop} {
+        padding: 2*$spacing $spacing 2*$spacing 2*$spacing;
+        font-size: 50px;
+        width: 15vw;
+        display: flex;
+        flex-wrap: wrap;
+        position: sticky;
+        top: 0;
+
+    }
 }
 
 .logo {
-    width: 50%;
+    width: 100%;
+    @media #{$desktop} {
+        width: 50%;
+    }
+
 }
 
 .logoContainer {
-    width: 100%;
-    display: flex;
-    justify-content: center;
+    width: 20%;
+    padding-right: $spacing;
+    @media #{$desktop} {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding: unset;
+    }
 }
 
 .title {
-    text-align: center;
-    font-size: x-large;
-    width: 100%;
-    font-variant: small-caps;
-    font-weight: 600;
+    display:none;
+    @media #{$desktop} {
+        display:unset;
+        text-align: center;
+        font-size: x-large;
+        width: 100%;
+        font-variant: small-caps;
+        font-weight: 600;
+    }
+
 }

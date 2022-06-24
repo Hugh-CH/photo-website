@@ -1,5 +1,17 @@
-.gallery {
+.mobileGallery {
     display: flex;
+    padding-right: $spacing;
+    @media #{$desktop} {
+        display: none;
+    }
+}
+
+.desktopGallery {
+    display: none;
+    padding-right: $spacing;
+    @media #{$desktop} {
+        display: flex;
+    }
 }
 
 .column {

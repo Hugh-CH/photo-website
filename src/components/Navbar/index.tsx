@@ -29,18 +29,21 @@ const Navbar: React.FC<navbarProps> =({currentPage, setCurrentPage}) => {
         {Pages.home.title}
       </button>
 
-      <button
-        {...getToggleProps({
-        onClick: () => setExpanded((prevExpanded) => !prevExpanded),
-        })}
-        className={"majorNavButton"}>
-        {'Galleries'}
-      </button>
 
-      <div {...getCollapseProps()} className="expandableContainer">
-        <hr className="narrowDivider"/>
-        {galleryButtons}
-        <hr className="narrowDivider"/>
+      <div className="galleryButtonsWrapper">
+        <button
+          {...getToggleProps({
+            onClick: () => setExpanded((prevExpanded) => !prevExpanded),
+          })}
+          className={"majorNavButton"}>
+          {'Galleries'}
+        </button>
+
+        <div {...getCollapseProps()} className="expandableContainer">
+          <hr className="narrowDivider"/>
+          {galleryButtons}
+          <hr className="narrowDivider"/>
+        </div>
       </div>
 
       <button className={currentPage.id===Pages.about.id?"majorNavButton--selected":"majorNavButton"} onClick={()=>{setCurrentPage(Pages.about)}}>

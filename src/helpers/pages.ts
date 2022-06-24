@@ -6,7 +6,7 @@ export type page = {
 }
 
 export const Pages = {
-  home: {id: 'home', title:'Home', galleryName:'home', numberOfImages:6},
+  home: {id: 'home', title:'Home', galleryName:'home', numberOfImages:8},
   about: {id: 'about', title:'About'},
 }
 

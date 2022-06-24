@@ -10,9 +10,13 @@ button{
 }
 
 hr {
+  display: none;
   width: 100%;
   border:none;
   border-top: 1px solid $primary;
   margin-top: 2*$spacing;
   margin-bottom: 2*$spacing;
+  @media #{$desktop} {
+    display: block;
+  }
 }

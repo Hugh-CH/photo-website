@@ -1,4 +1,9 @@
 .pageWrapper {
-    width: 98vw;
+    //width: vw;
     display: flex;
+    flex-wrap: wrap;
+    @media #{$desktop} {
+        flex-wrap: nowrap;
+    }
+
 }

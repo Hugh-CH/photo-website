@@ -18,21 +18,23 @@ const Gallery: React.FC<galleryProps> = ({galleryName, numberofImages}) => {
 
   let firstColumn = [];
   let secondColumn = [];
+  let mobileColumn =[];
 
   for (let i = 1; i <=numberofImages; i++) {
     let imageName = galleryName+'/'+i;
     let image = cld.image(imageName);
     image.quality('auto')
-    image.resize(scale().width(1000))
+    image.resize(scale().width(1200))
+    mobileColumn.push(<GalleryImage key={i} cldImage={image} lazyLoad={i>2} />)
     i & 1 ? (
-      firstColumn.push(<GalleryImage key={i} cldImage={image} lazyLoad={i>4} />)
+      firstColumn.push(<GalleryImage key={i} cldImage={image} lazyLoad={i>2} />)
       ):(
-      secondColumn.push(<GalleryImage key={i} cldImage={image} lazyLoad={i>4} />)
+      secondColumn.push(<GalleryImage key={i} cldImage={image} lazyLoad={i>2} />)
       );
   }
 
-  return (
-    <div className={"gallery"}>
+  const desktopGallery =
+    <div className={"desktopGallery"}>
       <div className="column">
         {firstColumn}
       </div>
@@ -40,6 +42,19 @@ const Gallery: React.FC<galleryProps> = ({galleryName, numberofImages}) => {
         {secondColumn}
       </div>
     </div>
+
+  const mobileGallery =
+    <div className={"mobileGallery"}>
+      <div className="column">
+        {mobileColumn}
+      </div>
+    </div>
+
+  return (
+    <>
+      {mobileGallery}
+      {desktopGallery}
+    </>
   )
 }
 
