@@ -1,7 +1,7 @@
 .mobileGallery {
     display: flex;
     padding-right: $spacing;
-    @media #{$desktop} {
+    @media #{$tablet} {
         display: none;
     }
 }
@@ -9,7 +9,7 @@
 .desktopGallery {
     display: none;
     padding-right: $spacing;
-    @media #{$desktop} {
+    @media #{$tablet} {
         display: flex;
     }
 }

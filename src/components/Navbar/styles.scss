@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     width : 50%;
-    @media #{$desktop} {
+    @media #{$tablet} {
         width:100%;
         flex-wrap: wrap;
     }
@@ -13,7 +13,7 @@
     height: 7*$spacing;
     vertical-align: top;
     font-size: large;
-    padding: 2*$spacing 0;
+    padding: 1*$spacing 0;
     &--selected {
         @extend .majorNavButton;
         background: $primaryLight;
@@ -28,7 +28,7 @@
     vertical-align: top;
     width: 100%;
     font-size: medium;
-    padding: 2*$spacing 0;
+    padding: $spacing 0;
     &--selected {
         @extend .minorNavButton;
         background: $primaryLight;
@@ -44,7 +44,7 @@
     display: block;
     //width: 100%;
     position: absolute;
-    @media #{$desktop} {
+    @media #{$tablet} {
         width: 100%;
         position: unset;
     }

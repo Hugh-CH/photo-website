@@ -2,21 +2,25 @@
     padding: 2*$spacing 2*$spacing 0 2*$spacing;
     display: flex;
     justify-content: space-between;
-    @media #{$desktop} {
-        padding: 2*$spacing $spacing 2*$spacing 2*$spacing;
+    @media #{$tablet} {
+        padding: 2*$spacing 0 2*$spacing $spacing;
         font-size: 50px;
-        width: 15vw;
+        width: $sidebarWidth;
+        max-width: 400px;
         display: flex;
         flex-wrap: wrap;
         position: sticky;
         top: 0;
-
+    }
+    @media #{$desktop} {
+        padding: 2*$spacing 2*$spacing 2*$spacing $spacing;
     }
 }
 
 .logo {
     width: 100%;
-    @media #{$desktop} {
+    max-width: 200px;
+    @media #{$tablet} {
         width: 50%;
     }
 
@@ -25,7 +29,7 @@
 .logoContainer {
     width: 20%;
     padding-right: $spacing;
-    @media #{$desktop} {
+    @media #{$tablet} {
         width: 100%;
         display: flex;
         justify-content: center;
@@ -35,13 +39,12 @@
 
 .title {
     display:none;
-    @media #{$desktop} {
+    @media #{$tablet} {
         display:unset;
         text-align: center;
         font-size: x-large;
         width: 100%;
         font-variant: small-caps;
-        font-weight: 600;
+        font-weight: 500;
     }
-
 }

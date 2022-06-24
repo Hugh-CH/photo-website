@@ -11,8 +11,8 @@ export const Pages = {
 }
 
 export const Galleries = {
-  spain: {id: 'spain', title:'Spain', galleryName:'spain', numberOfImages:10},
-  godmanchester: {id: 'godmanchester', title:'Godmanchester', galleryName:'godmanchester', numberOfImages:7},
-  forestOfBowland: {id: 'forestOfBowland', title:'Forest of Bowland', galleryName:'forestOfBowland', numberOfImages:8},
-  lakeDistrict: {id: 'lakeDistrict', title:'The Lakes'},
+  lakeDistrict: {id: 'lakeDistrict', title:'Lake District', galleryName:'lakes', numberOfImages:11},
+  forestOfBowland: {id: 'forestOfBowland', title:'Lancaster', galleryName:'forestOfBowland', numberOfImages:8},
+  spain: {id: 'spain', title:'Spain', galleryName:'spain', numberOfImages:9},
+  godmanchester: {id: 'godmanchester', title:'The Fens', galleryName:'godmanchester', numberOfImages:7},
 }
