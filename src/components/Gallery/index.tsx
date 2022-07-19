@@ -1,60 +1,49 @@
 import React from "react";
-import {Cloudinary} from "@cloudinary/url-gen";
+import {Cloudinary, CloudinaryImage} from "@cloudinary/url-gen";
 import GalleryImage from "../GalleryImage";
 import "../../main.scss"
 import {scale} from "@cloudinary/url-gen/actions/resize";
 
-type galleryProps = {
+type GalleryProps = {
   galleryName: string,
-  numberofImages: number,
+  numberOfImages: number,
 }
 
-const Gallery: React.FC<galleryProps> = ({galleryName, numberofImages}) => {
+const Gallery: React.FC<GalleryProps> = ({galleryName, numberOfImages}) => {
   const cld = new Cloudinary({
     cloud: {
       cloudName: 'hughud'
     }
   });
 
-  let firstColumn = [];
-  let secondColumn = [];
-  let mobileColumn =[];
+  let images = [];
 
-  for (let i = 1; i <=numberofImages; i++) {
-    let imageName = galleryName+'/'+i;
+  const formatImage = (imageName: string): CloudinaryImage => {
     let image = cld.image(imageName);
-    image.quality('auto')
-    image.resize(scale().width(1200))
-    mobileColumn.push(<GalleryImage key={i} cldImage={image} lazyLoad={i>2} />)
-    i & 1 ? (
-      firstColumn.push(<GalleryImage key={i} cldImage={image} lazyLoad={i>2} />)
-      ):(
-      secondColumn.push(<GalleryImage key={i} cldImage={image} lazyLoad={i>2} />)
-      );
+    image.quality('auto');
+    image.resize(scale().width(1200));
+    return image
   }
 
-  const desktopGallery =
-    <div className={"desktopGallery"}>
-      <div className="column">
-        {firstColumn}
-      </div>
-      <div className="column">
-        {secondColumn}
-      </div>
-    </div>
+  for (let i = 1; i <=numberOfImages; i+=2) {
+    const leftImageName= galleryName+'/'+i;
+    const rightImageName= galleryName+'/'+(i+1);
 
-  const mobileGallery =
-    <div className={"mobileGallery"}>
-      <div className="column">
-        {mobileColumn}
-      </div>
-    </div>
+    const leftImage = formatImage(leftImageName);
+    const rightImage = formatImage(rightImageName);
+
+
+    images.push(
+      <div className="galleryRow">
+        <GalleryImage key={i} cldImage={leftImage} imageName={leftImageName} />
+        <GalleryImage key={i+1} cldImage={rightImage} imageName={rightImageName} />
+      </div>);
+  }
 
   return (
-    <>
-      {mobileGallery}
-      {desktopGallery}
-    </>
+    <div className={"gallery"}>
+      {images}
+    </div>
   )
 }
 

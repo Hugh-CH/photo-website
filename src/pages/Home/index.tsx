@@ -10,7 +10,7 @@ const Home: React.FC = () => {
   return (
     <Layout currentPage={currentPage} setCurrentPage={setCurrentPage}>
       {currentPage.galleryName ? (
-        <Gallery galleryName={currentPage.galleryName} numberofImages={currentPage.numberOfImages ?? 0}/>
+        <Gallery galleryName={currentPage.galleryName} numberOfImages={currentPage.numberOfImages ?? 0}/>
         ):(
         <div>
           {currentPage.title}

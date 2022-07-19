@@ -1,19 +1,13 @@
-.mobileGallery {
+.gallery {
+    height: 100%;
     display: flex;
+    flex-wrap: wrap;
     padding-right: $spacing;
-    @media #{$tablet} {
-        display: none;
-    }
 }
 
-.desktopGallery {
-    display: none;
-    padding-right: $spacing;
-    @media #{$tablet} {
-        display: flex;
-    }
+.galleryRow {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: stretch;
 }
 
-.column {
-    flex: 50%;
-}
