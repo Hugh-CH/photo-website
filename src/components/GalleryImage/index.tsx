@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import "../../main.scss"
 import {CloudinaryImage} from "@cloudinary/url-gen";
-import {AdvancedImage, lazyload} from "@cloudinary/react";
+import {AdvancedImage, lazyload, responsive} from "@cloudinary/react";
 
 type ImageData = {
   bytes: number;
@@ -19,10 +19,9 @@ const GalleryImage:React.FC<{cldImage: CloudinaryImage, imageName: string}> = ({
       try {
         const response = await fetch(url);
         const jsonResponse = await response.json();
-        console.log(jsonResponse);
         setImageData(jsonResponse.output);
       } catch (error) {
-        console.log('Missing data for image', imageName, error);
+        console.warn('Missing data for image', imageName, error);
       }
     }
     getImageData();
@@ -32,7 +31,7 @@ const GalleryImage:React.FC<{cldImage: CloudinaryImage, imageName: string}> = ({
 
   return (
     <div className="galleryImageWrapper" style={imageData && {flex:aspectRatio}}>
-      <AdvancedImage className={"galleryImage"} cldImg={cldImage} plugins={[lazyload()]}/>
+      <AdvancedImage className={"galleryImage"} cldImg={cldImage} plugins={[lazyload(), responsive({steps: 200})]}/>
     </div>
   )
 }

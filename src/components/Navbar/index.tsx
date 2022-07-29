@@ -49,8 +49,6 @@ const Navbar: React.FC<navbarProps> =({currentPage, setCurrentPage}) => {
       <button className={currentPage.id===Pages.about.id?"majorNavButton--selected":"majorNavButton"} onClick={()=>{setCurrentPage(Pages.about)}}>
         {Pages.about.title}
       </button>
-
-      {/*{showGalleryButtons && galleryButtons}*/}
     </div>
   )
 };

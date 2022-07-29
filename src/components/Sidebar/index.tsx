@@ -13,7 +13,6 @@ type sidebarProps = {
 const Sidebar: React.FC<sidebarProps> = ({currentPage,setCurrentPage}) => {
 
   return(
-    <nav>
       <div className="sidebarContainer">
         <div className="logoContainer">
           <img className="logo" src={logo} alt="Logo Link"/>
@@ -25,7 +24,6 @@ const Sidebar: React.FC<sidebarProps> = ({currentPage,setCurrentPage}) => {
         <hr/>
         <Navbar currentPage={currentPage} setCurrentPage={setCurrentPage}/>
       </div>
-    </nav>
   )
 }
 

@@ -2,6 +2,7 @@
     padding: 2*$spacing 2*$spacing 0 2*$spacing;
     display: flex;
     justify-content: space-between;
+    width: 100%;
     @media #{$tablet} {
         padding: 2*$spacing 0 2*$spacing $spacing;
         font-size: 50px;
