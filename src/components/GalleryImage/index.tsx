@@ -11,10 +11,9 @@ type ImageData = {
 }
 
 const GalleryImage:React.FC<{cldImage: CloudinaryImage, imageName: string}> = ({cldImage,imageName}) => {
-    const [imageData, setImageData] = useState<ImageData|undefined>();
+  const [imageData, setImageData] = useState<ImageData|undefined>();
 
   useEffect(() => {
-    // declare the async data fetching function
     const  getImageData = async () => {
       const url = 'https://res.cloudinary.com/hughud/image/upload/fl_getinfo/v1/'+imageName;
       try {
@@ -31,12 +30,11 @@ const GalleryImage:React.FC<{cldImage: CloudinaryImage, imageName: string}> = ({
 
   const aspectRatio = imageData && imageData.width/imageData.height
 
-
-    return (
-        <div className="galleryImageWrapper" style={imageData && {flex:aspectRatio}}>
-          <AdvancedImage className={"galleryImage"} cldImg={cldImage} plugins={[lazyload()]}/>
-        </div>
-    )
+  return (
+    <div className="galleryImageWrapper" style={imageData && {flex:aspectRatio}}>
+      <AdvancedImage className={"galleryImage"} cldImg={cldImage} plugins={[lazyload()]}/>
+    </div>
+  )
 }
 
 export default GalleryImage;
