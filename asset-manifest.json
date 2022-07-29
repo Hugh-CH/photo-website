@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/photo-website/static/css/main.926c8af0.css",
-    "main.js": "/photo-website/static/js/main.94cb29f0.js",
+    "main.css": "/photo-website/static/css/main.fd7c1bcf.css",
+    "main.js": "/photo-website/static/js/main.adcc9f5d.js",
     "static/js/787.379d717d.chunk.js": "/photo-website/static/js/787.379d717d.chunk.js",
     "static/media/logo.svg": "/photo-website/static/media/logo.6e21e62f4018f7d79b1864a731eb8d77.svg",
     "index.html": "/photo-website/index.html",
-    "main.926c8af0.css.map": "/photo-website/static/css/main.926c8af0.css.map",
-    "main.94cb29f0.js.map": "/photo-website/static/js/main.94cb29f0.js.map",
+    "main.fd7c1bcf.css.map": "/photo-website/static/css/main.fd7c1bcf.css.map",
+    "main.adcc9f5d.js.map": "/photo-website/static/js/main.adcc9f5d.js.map",
     "787.379d717d.chunk.js.map": "/photo-website/static/js/787.379d717d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.926c8af0.css",
-    "static/js/main.94cb29f0.js"
+    "static/css/main.fd7c1bcf.css",
+    "static/js/main.adcc9f5d.js"
   ]
 }
